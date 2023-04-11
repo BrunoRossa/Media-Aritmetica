@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora de Média</title>
+	<style type="text/css">
+		body {
+			background-color: #f2f2f2;
+			font-family: Arial;
+		}
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+			color: #333;
+		}
+		form {
+			margin-top: 50px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		input[type="number"] {
+			padding: 10px;
+			margin-bottom: 20px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+			width: 100%;
+			max-width: 300px;
+		}
+		button[type="submit"] {
+			padding: 10px 20px;
+			background-color: #333;
+			color: #fff;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+		}
+		button[type="submit"]:hover {
+			background-color: #444;
+		}
+	</style>
+</head>
+<body>
+	<h1>Calculadora de Média</h1>
+	
+	<form id="form">
+		<label for="nota1">Nota 1:</label>
+		<input type="number" id="nota1" name="nota1" required>
+
+		<label for="nota2">Nota 2:</label>
+		<input type="number" id="nota2" name="nota2" required>
+
+		<label for="nota3">Nota 3:</label>
+		<input type="number" id="nota3" name="nota3" required>
+
+        <button type="submit">Calcular Média</button>
+        
+        <p id="resultado"></p>
+    </form>
+
+    <script type="text/javascript">
+    	const form = document.getElementById('form');
+    	const resultado = document.getElementById('resultado');
+
+    	form.addEventListener('submit', function(event) {
+    		event.preventDefault();
+
+    		const nota1 = parseFloat(document.getElementById('nota1').value);
+    		const nota2 = parseFloat(document.getElementById('nota2').value);
+    		const nota3 = parseFloat(document.getElementById('nota3').value);
+
+    		const media = (nota1 + nota2 + nota3) / 3;
+
+    		resultado.innerHTML = `A média é ${media.toFixed(2)}`;
+    	});
+    </script>
+</body>
+</html>
